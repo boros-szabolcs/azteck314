@@ -1,5 +1,3 @@
 # Welcome
 
-Read this file
-
-Delete this file
+Git repo bundled with local web-server
