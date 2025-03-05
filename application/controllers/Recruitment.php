@@ -52,7 +52,7 @@ class Recruitment extends CI_Controller {
 	
 	private function display_webpage($page = 'notfound')
 	{
-		$this->load->view('recruitment_start');
+		$this->load->view('recruitment_start', array('title'=>$page));
 		$this->display_page('recruitment_' . $page);
 		$this->load->view('recruitment_end');
 	}
