@@ -19,10 +19,10 @@ class Recruitment extends CI_Controller {
 	
 	private function decide()
 	{
-		if ($this->session->userdata('user')) { // TODO [boross] check for correct version
+		if (!$this->session->userdata('user')) { // TODO [boross] check for correct version
 			$this->dashboard();
 		} else {
-			if (!true) { // TODO [boross] check for correct version
+			if (true) { // TODO [boross] check for correct version
 				$this->login();
 			} else {
 				$this->signup();
