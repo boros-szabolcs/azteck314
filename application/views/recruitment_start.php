@@ -5,5 +5,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<head>
 		<meta charset="utf-8" />
 		<title><?php echo $title; ?></title>
+		<meta name="viewport"           content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="content-type" content="text/html; charset=windows-1252" />
+		<meta http-equiv="refresh"      content="5" />
+		
+		<!-- jQuery -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+		
+		<!-- BootStrap -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
 	</head>
 	<body>
+		<div class="container">
