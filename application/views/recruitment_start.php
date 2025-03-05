@@ -7,7 +7,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<title><?php echo $title; ?></title>
 		<meta name="viewport"           content="width=device-width, initial-scale=1.0" />
 		<meta http-equiv="content-type" content="text/html; charset=windows-1252" />
-		<meta http-equiv="refresh"      content="5" />
+		<!-- meta http-equiv="refresh"  content="5" / -->
 		
 		<!-- jQuery -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
