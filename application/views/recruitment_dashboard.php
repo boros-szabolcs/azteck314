@@ -1,4 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
-						DASHBOARD
+
+<div id="UsersStatus" style="width:600px;"></div>
+
