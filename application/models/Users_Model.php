@@ -9,7 +9,7 @@ class Users_Model extends CI_Model {
 		parent::__construct();
 	}
 	
-	function fetchtable()
+	function getUsers()
 	{
 		$query = $this->db->get('users');
 		return $query->result();
