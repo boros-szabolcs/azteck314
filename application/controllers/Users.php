@@ -16,7 +16,11 @@ class Users extends CI_Controller {
 	  */
 	public function index()
 	{
-		echo '---===---';
+		// Since this controller's methods are needed for jTable actions,
+		// controller must be *public*-ly available. But openly requesting the
+		// controller (aka. controller's default method) shouldn't be allowed
+		// in this particular case, hence the redirect.
+		redirect('recruitment');
 	}
 	
 	public function select()
