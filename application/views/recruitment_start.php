@@ -21,14 +21,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<!-- link rel="stylesheet" href="https://code.jquery.com/ui/1.14.1/themes/trontastic/jquery-ui.css" / -->
 		
 		<!-- BootStrap -->
-		<!-- script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.js"></script -->
-		<!-- link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css" / -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.js"></script>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.css" />
 		
 		<!-- jTable -->
-		<!-- script src="https://cdn.jsdelivr.net/npm/jtable@2.6.0/jquery.jtable.js"></script -->
-		<!-- link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jtable@2.6.0/lib/themes/metro/blue/jtable.min.css" / -->
 		<script src="https://cdn.jsdelivr.net/npm/jtable@2.6.0/lib/jquery.jtable.js"></script>
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jtable@2.6.0/lib/themes/lightcolor/blue/jtable.css" />
 		<!-- link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jtable@2.6.0/lib/themes/lightcolor/gray/jtable.css" / -->
