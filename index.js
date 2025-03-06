@@ -6,10 +6,10 @@ $(document).ready(
 		{
 			title: "Users' Status",
 			actions: {
-				listAction:   'users/list',
-				createAction: 'users/add',
-				updateAction: 'users/edit',
-				deleteAction: 'users/del',
+				listAction:   'users/select',
+				createAction: 'users/insert',
+				updateAction: 'users/update',
+				deleteAction: 'users/delete',
 			},
 			fields: {
 				userid: {
