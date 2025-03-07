@@ -51,5 +51,32 @@ $(document).ready(
 		
 		//Load users list from server
 		$('#UsersStatus').jtable('load');
+		
+		//Prepare jTable
+		$('#Statuses').jtable(
+		{
+			title: "Statuses",
+			actions: {
+				listAction:   'statuses/select',
+				createAction: 'statuses/insert',
+				updateAction: 'statuses/update',
+				deleteAction: 'statuses/delete',
+			},
+			fields: {
+				egy: {
+					key: true,
+					create: false,
+					edit: false,
+					list: false,
+				},
+				ketto: {
+					title: 'Status',
+				},
+			},
+		}
+		);
+		
+		//Load users list from server
+		$('#Statuses').jtable('load');
 	}
 );

@@ -19,10 +19,17 @@ class Recruitment extends CI_Controller {
 	
 	private function decide()
 	{
-		if (!$this->session->userdata('user')) { // TODO [boross] check for correct version
-			$this->dashboard();
+		if (!$this->session->userdata('user')) {
+			switch ($this->input->post('navigate'))
+			{
+				case 'statuses':
+					$this->statuses();
+					break;
+				default:
+					$this->dashboard();
+			}
 		} else {
-			if (true) { // TODO [boross] check for correct version
+			if (true) {
 				$this->login();
 			} else {
 				$this->signup();
@@ -33,6 +40,11 @@ class Recruitment extends CI_Controller {
 	private function dashboard()
 	{
 		$this->display_webpage('dashboard');
+	}
+	
+	private function statuses()
+	{
+		$this->display_webpage('statuses');
 	}
 	
 	private function login()
