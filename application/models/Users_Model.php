@@ -36,6 +36,12 @@ class Users_Model extends CI_Model {
 		return $this->db->insert_id();
 	}
 	
+	function deleteUserByUserid($userid)
+	{
+		$this->db->where('userid',$userid);
+		$this->db->delete('users');
+	}
+	
 	function validate_user($email,$password)
 	{
 		$this->db->where('email',$email);

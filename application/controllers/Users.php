@@ -91,7 +91,20 @@ class Users extends CI_Controller {
 	
 	public function delete()
 	{
-		echo 'delete';
+		try
+		{
+			$userid = $this->input->post('userid');
+			$this->Users_Model->deleteUserByUserid($userid);
+			
+			// Return result to jTable
+			$result = array();
+			$result['Result'] = 'OK';
+			print json_encode($result);
+		}
+		catch (Exception $ex)
+		{
+			print error_message($ex);
+		}
 	}
 	
 	private function error_message($ex)
