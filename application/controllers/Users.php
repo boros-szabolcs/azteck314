@@ -42,7 +42,46 @@ class Users extends CI_Controller {
 	
 	public function insert()
 	{
-		echo 'insert';
+		try
+		{
+			$username   = $this->input->post('username');
+			$email      = $this->input->post('email');
+			$password   = $this->input->post('password');
+			$phone      = $this->input->post('phone');
+			$firstname  = $this->input->post('firstname');
+			$middlename = $this->input->post('middlename');
+			$lastname   = $this->input->post('lastname');
+			$city       = $this->input->post('city');
+			$country    = $this->input->post('country');
+			$user = array(
+				'username'   => ( $username   === '' ) ? null : $username,
+				'email'      => ( $email      === '' ) ? null : $email,
+				'password'   => ( $password   === '' ) ? null : $password,
+				'phone'      => ( $phone      === '' ) ? null : $phone,
+				'firstname'  => ( $firstname  === '' ) ? null : $firstname,
+				'middlename' => ( $middlename === '' ) ? null : $middlename,
+				'lastname'   => ( $lastname   === '' ) ? null : $lastname,
+				'city'       => ( $city       === '' ) ? null : $city,
+				'country'    => ( $country    === '' ) ? null : $country,
+			);
+			$userid = $this->Users_Model->insertUser($user);
+			
+			// Use one of two below
+			//$user['userid'] = $userid; // this would be faster than another MySQL DB Query
+			$user = $this->Users_Model->getUserByUserid($userid); // or just use $userid
+			// using LAST_INSERT_ID() could be problematic when many inserts happen simultaneously by different users
+			// later edit: using LAST_INSERT_ID() didn't work
+			
+			// Return result to jTable
+			$result = array();
+			$result['Result'] = 'OK';
+			$result['Record'] = $user;
+			print json_encode($result);
+		}
+		catch (Exception $ex)
+		{
+			print error_message($ex);
+		}
 	}
 	
 	public function update()

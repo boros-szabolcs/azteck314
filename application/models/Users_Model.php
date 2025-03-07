@@ -15,7 +15,22 @@ class Users_Model extends CI_Model {
 		return $query->result();
 	}
 	
-	function create_user($user)
+	function getUserByUserid($userid)
+	{
+		$this->db->where('userid',$userid);
+		$query = $this->db->get('users');
+		
+		if ($query->num_rows() == 1)
+		{
+			return $query->row();
+		}
+		else
+		{
+			return false;
+		}
+	}
+	
+	function insertUser($user)
 	{
 		$this->db->insert('users',$user);
 		return $this->db->insert_id();
