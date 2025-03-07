@@ -28,6 +28,7 @@ class Users extends CI_Controller {
 		try
 		{
 			$rows = $this->Users_Model->getUsers();
+			
 			// Return result to jTable
 			$result = array();
 			$result['Result'] = 'OK';
@@ -86,7 +87,40 @@ class Users extends CI_Controller {
 	
 	public function update()
 	{
-		echo 'update';
+		try
+		{
+			$userid     = $this->input->post('userid');
+			$username   = $this->input->post('username');
+			$email      = $this->input->post('email');
+			$password   = $this->input->post('password');
+			$phone      = $this->input->post('phone');
+			$firstname  = $this->input->post('firstname');
+			$middlename = $this->input->post('middlename');
+			$lastname   = $this->input->post('lastname');
+			$city       = $this->input->post('city');
+			$country    = $this->input->post('country');
+			$user = array(
+				'username'   => ( $username   === '' ) ? null : $username,
+				'email'      => ( $email      === '' ) ? null : $email,
+				'password'   => ( $password   === '' ) ? null : $password,
+				'phone'      => ( $phone      === '' ) ? null : $phone,
+				'firstname'  => ( $firstname  === '' ) ? null : $firstname,
+				'middlename' => ( $middlename === '' ) ? null : $middlename,
+				'lastname'   => ( $lastname   === '' ) ? null : $lastname,
+				'city'       => ( $city       === '' ) ? null : $city,
+				'country'    => ( $country    === '' ) ? null : $country,
+			);
+			$this->Users_Model->updateUserByUserid($userid,$user);
+			
+			// Return result to jTable
+			$result = array();
+			$result['Result'] = 'OK';
+			print json_encode($result);
+		}
+		catch (Exception $ex)
+		{
+			print error_message($ex);
+		}
 	}
 	
 	public function delete()

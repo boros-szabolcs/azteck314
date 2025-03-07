@@ -36,6 +36,13 @@ class Users_Model extends CI_Model {
 		return $this->db->insert_id();
 	}
 	
+	function updateUserByUserid($userid,$user)
+	{
+		$this->db->set($user);
+		$this->db->where('userid',$userid);
+		$this->db->update('users',$user);
+	}
+	
 	function deleteUserByUserid($userid)
 	{
 		$this->db->where('userid',$userid);
