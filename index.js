@@ -63,13 +63,13 @@ $(document).ready(
 				deleteAction: 'statuses/delete',
 			},
 			fields: {
-				egy: {
+				statusid: {
 					key: true,
 					create: false,
 					edit: false,
 					list: false,
 				},
-				ketto: {
+				statustext: {
 					title: 'Status',
 				},
 			},
