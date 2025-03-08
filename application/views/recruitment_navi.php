@@ -11,7 +11,7 @@ if ($this->session->userdata('user'))
 		return ''
 		.form_open()
 		.form_hidden('navigate', $page)
-		.form_submit('submit', strtoupper($page), 'class="btn btn-default btn-block"')
+		.form_submit('submit', strtoupper($page), 'class="btn btn-default btn-block form-control"')
 		.form_close()
 		.'';
 	}
