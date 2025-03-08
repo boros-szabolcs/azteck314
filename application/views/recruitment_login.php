@@ -8,6 +8,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<?php echo form_open('account/login','role="form" class="form-horizontal"'); ?>
 
 		<div class="form-group">
+			<div class="col-sm-offset-2 col-sm-10">
+			<?php
+				echo validation_errors();
+				if ($this->session->flashdata('error'))
+				{
+					echo '<div class="alert alert-warning alert-dismissible">';
+					echo '<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>';
+					echo '<strong>'.$this->session->flashdata('error').'</strong>';
+					echo '</div>';
+				}
+			?>
+
+			</div>
+		</div>
+		
+		<div class="form-group">
 			<?php echo form_label('E-mail','email','class="control-label col-sm-2"'); ?>
 
 			<div class="col-sm-10">
