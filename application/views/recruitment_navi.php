@@ -21,7 +21,7 @@ $list = array(
 
 $attributes = array(
 	'class' => 'nav nav-stacked',
-	//'role' => 'tablist',
+	'role' => 'tablist',
 );
 
 echo ul($list, $attributes);
