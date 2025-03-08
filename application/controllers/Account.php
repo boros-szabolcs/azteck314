@@ -85,6 +85,50 @@ class Account extends CI_Controller {
 		$this->recruitment();
 	}
 	
+	private function signup_action()
+	{
+		if ($this->input->post())
+		{
+			$username   = $this->input->post('username');
+			$email      = $this->input->post('email');
+			$password   = $this->input->post('password');
+			$repasswd   = $this->input->post('repasswd');
+			$phone      = $this->input->post('phone');
+			$firstname  = $this->input->post('firstname');
+			$middlename = $this->input->post('middlename');
+			$lastname   = $this->input->post('lastname');
+			$city       = $this->input->post('city');
+			$country    = $this->input->post('country');
+			
+			$user = array(
+				'username'   => ( $username   === '' ) ? null : $username,
+				'email'      => ( $email      === '' ) ? null : $email,
+				'password'   => ( $password   === '' ) ? null : $password,
+				'phone'      => ( $phone      === '' ) ? null : $phone,
+				'firstname'  => ( $firstname  === '' ) ? null : $firstname,
+				'middlename' => ( $middlename === '' ) ? null : $middlename,
+				'lastname'   => ( $lastname   === '' ) ? null : $lastname,
+				'city'       => ( $city       === '' ) ? null : $city,
+				'country'    => ( $country    === '' ) ? null : $country,
+			);
+			
+			$userid = $this->Users_Model->insertUser($user);
+			
+			if ($userid)
+			{
+				$user['userid'] = $userid;
+				$this->session->set_userdata('user',$user);
+				$this->recruitment();
+			}
+			else
+			{
+				$this->session->set_flashdata('error','Something went wrong');
+				$this->recruitment();
+			}
+		}
+		$this->recruitment();
+	}
+	
 	public function logout()
 	{
 		$this->session->unset_userdata('user');
