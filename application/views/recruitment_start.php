@@ -30,6 +30,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<!-- link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jtable@2.6.0/lib/themes/lightcolor/gray/jtable.css" / -->
 		<!-- link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jtable@2.6.0/lib/themes/metro/lightgray/jtable.css" / -->
 		
+		<!-- Select2 -->
+		<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" />
+		
 		<!-- proprietary -->
 		<script src="../index.js"></script>
 		<link rel="stylesheet" href="../index.css" />
