@@ -62,6 +62,29 @@ class Account extends CI_Controller {
 		}
 	}
 	
+	private function login_action()
+	{
+		if ($this->input->post())
+		{
+			$email = $this->input->post('email');
+			$password = $this->input->post('password');
+			
+			$user = $this->Users_Model->validate_user($email,$password);
+			
+			if ($user)
+			{
+				$this->session->set_userdata('user',$user);
+				$this->recruitment();
+			}
+			else
+			{
+				$this->session->set_flashdata('error','Invalid credentials');
+				$this->recruitment();
+			}
+		}
+		$this->recruitment();
+	}
+	
 	public function logout()
 	{
 		$this->session->unset_userdata('user');
