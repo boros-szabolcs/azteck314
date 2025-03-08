@@ -52,7 +52,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <div class="container">
 	<?php
-		echo form_open();
+		echo form_open('recruitment');
 		echo form_hidden('navigate', 'signup');
 		echo 'Already have an account?';
 		echo form_submit('submit', 'SIGN UP', 'class="btn btn-link"');
