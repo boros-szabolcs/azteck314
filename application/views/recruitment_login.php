@@ -10,12 +10,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<div class="form-group">
 			<div class="col-sm-offset-2 col-sm-10">
 			<?php
-				echo validation_errors();
-				if ($this->session->flashdata('error'))
+				$ve = validation_errors();
+				$fd = $this->session->flashdata('error');
+				if (!empty($ve) || !is_null($fd))
 				{
 					echo '<div class="alert alert-warning alert-dismissible">';
 					echo '<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>';
-					echo '<strong>'.$this->session->flashdata('error').'</strong>';
+					echo '<strong>'.$ve.$fd.'</strong>';
 					echo '</div>';
 				}
 			?>
