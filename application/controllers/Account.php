@@ -25,10 +25,41 @@ class Account extends CI_Controller {
 	
 	public function login()
 	{
+		$this->load->helper('security');
+		$this->load->library('form_validation');
+		
+		$this->form_validation->set_rules('email'   ,'E-mail'  ,'required|trim|xss_clean|callback_login_email_valid');
+		$this->form_validation->set_rules('password','Password','required|trim');
+		
+		if ($this->form_validation->run())
+		{
+			$this->login_action();
+		}
+		else
+		{
+			$this->recruitment();
+		}
 	}
 	
 	public function signup()
 	{
+		$this->load->helper('security');
+		$this->load->library('form_validation');
+		
+		$this->form_validation->set_rules('username','User name'       ,'required|trim|xss_clean');
+		$this->form_validation->set_rules('email'   ,'E-mail'          ,'required|trim|xss_clean|callback_signup_email_valid');
+		$this->form_validation->set_rules('password','Password'        ,'required|trim');
+		$this->form_validation->set_rules('repasswd','Re-type password','required|trim|matches[password]');
+		
+		if ($this->form_validation->run())
+		{
+			$this->signup_action();
+		}
+		else
+		{
+			$_POST['navigate'] = 'signup';
+			$this->recruitment(); // this is a GET call, what happens with $_POST data, set just above?
+		}
 	}
 	
 	public function logout()
@@ -41,5 +72,31 @@ class Account extends CI_Controller {
 	private function recruitment()
 	{
 		redirect('recruitment');
+	}
+	
+	public function login_email_valid()
+	{
+		if ($this->Users_Model->validate_email())
+		{
+			return true;
+		}
+		else
+		{
+			$this->form_validation->set_message('login_email_valid',"E-mail doesn't exist.");
+			return false;
+		}
+	}
+	
+	public function signup_email_valid()
+	{
+		if (!$this->Users_Model->validate_email())
+		{
+			return true;
+		}
+		else
+		{
+			$this->form_validation->set_message('signup_email_valid',"E-mail already exists.");
+			return false;
+		}
 	}
 }
