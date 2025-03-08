@@ -29,10 +29,10 @@ class Recruitment extends CI_Controller {
 					$this->dashboard();
 			}
 		} else {
-			if (true) {
-				$this->login();
-			} else {
+			if ($this->input->post('navigate') == 'signup') {
 				$this->signup();
+			} else {
+				$this->login();
 			}
 		}
 	}
