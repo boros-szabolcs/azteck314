@@ -25,6 +25,9 @@ class Recruitment extends CI_Controller {
 				case 'statuses':
 					$this->statuses();
 					break;
+				case 'logout':
+					redirect('account/logout');
+					break;
 				default:
 					$this->dashboard();
 			}

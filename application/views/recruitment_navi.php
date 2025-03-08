@@ -17,6 +17,7 @@ function navigate($page)
 $list = array(
 	navigate("dashboard"),
 	navigate("statuses"),
+	navigate("logout"),
 );
 
 $attributes = array(
