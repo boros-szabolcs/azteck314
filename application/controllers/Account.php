@@ -37,7 +37,7 @@ class Account extends CI_Controller {
 		}
 		else
 		{
-			$this->recruitment();
+			$this->display_webpage('login');
 		}
 	}
 	
@@ -57,8 +57,7 @@ class Account extends CI_Controller {
 		}
 		else
 		{
-			$_POST['navigate'] = 'signup';
-			$this->recruitment(); // this is a GET call, what happens with $_POST data, set just above?
+			$this->display_webpage('signup');
 		}
 	}
 	
@@ -165,5 +164,20 @@ class Account extends CI_Controller {
 			$this->form_validation->set_message('signup_email_valid',"E-mail already exists.");
 			return false;
 		}
+	}
+	
+	private function display_webpage($page = 'notfound')
+	{
+		$this->load->view('recruitment_start', array('title'=>$page));
+		$this->display_page('recruitment_' . $page);
+		$this->load->view('recruitment_end');
+	}
+	
+	private function display_page($page)
+	{
+		$this->load->view('recruitment_header');
+		$this->load->view('recruitment_navi');
+		$this->load->view($page);
+		$this->load->view('recruitment_footer');
 	}
 }
