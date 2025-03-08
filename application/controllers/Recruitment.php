@@ -19,7 +19,7 @@ class Recruitment extends CI_Controller {
 	
 	private function decide()
 	{
-		if (!$this->session->userdata('user')) {
+		if ($this->session->userdata('user')) {
 			switch ($this->input->post('navigate'))
 			{
 				case 'statuses':
