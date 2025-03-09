@@ -14,11 +14,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						echo '<span>Welcome <strong>'.$user->firstname.' ('.$user->username.')</strong></span>';
 						$options = array('1'=>"egy", '2'=>"ketto", '3'=>"harom", '4'=>"negy", );
 						$attrbts = array(
-							'id' => 'id',
+							'id' => 'status_dropdown',
 							'class' => 'form-control',
 							'onChange' => 'alert(this.options[this.selectedIndex].text);',
 						);
-						echo form_dropdown('name', $options, '3', $attrbts);
+						echo form_dropdown('status_dropdown', $options, '3', $attrbts);
 					}
 					?>
 

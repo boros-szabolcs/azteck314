@@ -78,5 +78,8 @@ $(document).ready(
 		
 		//Load users list from server
 		$('#Statuses').jtable('load');
+		
+		//Initialize Select2 Status-Dropdown
+		$('#status_dropdown').select2();
 	}
 );
