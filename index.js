@@ -80,6 +80,10 @@ $(document).ready(
 		$('#Statuses').jtable('load');
 		
 		//Initialize Select2 Status-Dropdown
-		$('#status_dropdown').select2();
+		$('#status_dropdown').select2(
+		{
+			placeholder: 'Select Status',
+		}
+		);
 	}
 );
