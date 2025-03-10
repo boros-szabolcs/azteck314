@@ -7,6 +7,8 @@ class Recruitment extends CI_Controller {
 	{
 		parent::__construct();
 		include APPPATH . 'third_party/recruitment/views.php';
+		
+		$this->load->model("Statuses_Model");
 	}
 	
 	/**
