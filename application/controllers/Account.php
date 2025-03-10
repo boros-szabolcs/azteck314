@@ -109,6 +109,7 @@ class Account extends CI_Controller {
 				'lastname'   => ( $lastname   === '' ) ? null : $lastname,
 				'city'       => ( $city       === '' ) ? null : $city,
 				'country'    => ( $country    === '' ) ? null : $country,
+				'statusid'   => null,
 			);
 			
 			$userid = $this->Users_Model->insertUser($user);
@@ -116,6 +117,7 @@ class Account extends CI_Controller {
 			if ($userid)
 			{
 				$user['userid'] = $userid;
+				$user = (object)$user;
 				$this->session->set_userdata('user',$user);
 				$this->recruitment();
 			}

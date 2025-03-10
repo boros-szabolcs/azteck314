@@ -11,7 +11,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					{
 						$statuses = $this->Statuses_Model->getStatuses();
 						$user = $this->session->userdata('user');
-						if (is_array($user)) { $user = (object)$user; }
 						
 						$options = array('' => "");
 						foreach ($statuses as $status)
