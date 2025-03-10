@@ -155,6 +155,7 @@ class Users extends CI_Controller {
 		$userid = $this->input->post('userid');
 		$statusid = $this->input->post('statusid');
 		$this->Users_Model->changeUserStatusidByUserid($userid,$statusid);
+		$this->session->user->statusid = $statusid;
 	}
 }
 
