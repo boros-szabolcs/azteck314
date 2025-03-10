@@ -157,3 +157,4 @@ class Users extends CI_Controller {
 		$this->Users_Model->changeUserStatusidByUserid($userid,$statusid);
 	}
 }
+
