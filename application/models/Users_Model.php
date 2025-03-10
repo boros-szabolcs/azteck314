@@ -80,4 +80,14 @@ class Users_Model extends CI_Model {
 			return false;
 		}
 	}
+	
+	function changeUserStatusidByUserid($userid,$statusid)
+	{
+		$data = array(
+			'statusid' => $statusid,
+		);
+		$this->db->set($data);
+		$this->db->where('userid',$userid);
+		$this->db->update('users',$data);
+	}
 }

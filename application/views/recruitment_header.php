@@ -22,7 +22,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						$attrbts = array(
 							'id' => 'status_dropdown',
 							'class' => 'form-control',
-							'onChange' => 'alert(this.options[this.selectedIndex].text);',
+							'onChange' => 'changeStatus('.$user->userid.',this.value);',
 						);
 						
 						echo '<span>Welcome <strong>'.$user->firstname.' ('.$user->username.')</strong></span>';

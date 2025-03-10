@@ -149,4 +149,11 @@ class Users extends CI_Controller {
 		$result['Message'] = $ex->getMessage();
 		return json_encode($result);
 	}
+	
+	public function changeStatus()
+	{
+		$userid = $this->input->post('userid');
+		$statusid = $this->input->post('statusid');
+		$this->Users_Model->changeUserStatusidByUserid($userid,$statusid);
+	}
 }

@@ -87,3 +87,25 @@ $(document).ready(
 		);
 	}
 );
+
+function changeStatus(userid, statusid)
+{
+	jQuery.ajax(
+	{
+		url: 'users/changeStatus',
+		type: 'POST',
+		data: {
+			userid: userid,
+			statusid: statusid,
+		},
+		success: function(response)
+		{
+			alert('success');
+		},
+		error: function(response)
+		{
+			alert('F A I L E D !');
+		},
+	}
+	);
+}
