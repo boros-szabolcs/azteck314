@@ -100,12 +100,35 @@ function changeStatus(userid, statusid)
 		},
 		success: function(response)
 		{
-			alert('success');
+			showStatusChangeResult('success',2);
 		},
 		error: function(response)
 		{
-			alert('F A I L E D !');
+			showStatusChangeResult('error',5);
 		},
 	}
 	);
 }
+
+function showStatusChangeResult(result,seconds)
+{
+	$('#statusChangeResult').css("visibility", "visible");
+	if (result == 'success')
+	{
+		$('#statusChangeResult').attr("class", "alert-success");
+		$('#statusChangeResult').html('<strong>saved</strong>');
+	}
+	if (result == 'error')
+	{
+		$('#statusChangeResult').attr("class", "alert-danger");
+		$('#statusChangeResult').html('<strong>failed to save</strong>');
+	}
+	setTimeout(hideStatusChangeResult, seconds*1000);
+}
+
+function hideStatusChangeResult()
+{
+	$('#statusChangeResult').css("visibility", "hidden");
+	$('#statusChangeResult').html('');
+}
+

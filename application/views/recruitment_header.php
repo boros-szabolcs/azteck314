@@ -26,7 +26,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						);
 						
 						echo '<span>Welcome <strong>'.$user->firstname.' ('.$user->username.')</strong></span>';
+						echo br();
 						echo form_dropdown('status_dropdown', $options, $selected, $attrbts);
+						echo br();
+						echo '<div id="statusChangeResult"></div>';
 					}
 					?>
 
